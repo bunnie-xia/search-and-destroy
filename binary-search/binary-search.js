@@ -11,20 +11,26 @@ const binarySearch = (array, target) => {
 	let midIdx = Math.floor(array.length/2);
 	let midpoint = array[midIdx];
 	const test1 = [1,3,4,5,10,15,20,22,23,98,1000];
-	console.log('length:',test1.length);
+	// console.log('length:',test1.length);
 
-	console.log(midpoint);
+	console.log('midpoint:',midpoint);
+	console.log('    ')
 
 	if (target === midpoint) {
+		console.log(target,midpoint);
 		return true;
 	} else if (target < midpoint) {
 		let newArr = array.slice(0, midIdx);
-		binarySearch(newArr, target);
+		console.log('newArr', newArr);
+		console.log('length:',newArr.length);
+
+		return binarySearch(newArr, target);
 	} else {
 		let newArr = array.slice(midIdx); //[3,4,5] [4,5] [5]
 		console.log('newArr', newArr);
+		console.log('length:',newArr.length);
 
-		binarySearch(newArr, target);
+		return binarySearch(newArr, target);
 	}
 };
 
